@@ -63,4 +63,9 @@ $(document).ready(function () {
     simplifiedName = simplifiedName.substring(0, simplifiedName.indexOf('.')) // Simplify to the first part of the domain
     $(`.tab:eq(${tabIndex}) span`).text(simplifiedName) // Set the tab name
   }
+
+  //get the current year
+  document
+    .getElementById('year')
+    .appendChild(document.createTextNode(new Date().getFullYear()))
 })
