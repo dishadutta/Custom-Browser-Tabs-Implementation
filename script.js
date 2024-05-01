@@ -18,7 +18,7 @@ $(document).ready(function () {
     )
     newTab.insertBefore('#add-tab')
     const newContent = $(
-      `<div class="content"><input type="text" placeholder="Enter URL and press Enter"><iframe src="about:blank" frameborder="0"></iframe></div>`
+      `<div class="content"><input class="input-button" type="text" placeholder="Enter URL and press Enter"><iframe src="about:blank" frameborder="0"></iframe></div>`
     )
     contentContainer.append(newContent)
     switchToTab(tabCount) // Switch to the newly added tab
