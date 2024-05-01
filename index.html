@@ -3,18 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Tabs with Iframes</title>
+    <title>Custom Browser Tabs Implementation</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="tabs-container">
+    <!-- <div id="tabs-container">
       <ul id="tabs-list">
         <li class="tab active">
           <span>Home</span><button class="close">×</button>
         </li>
         <li id="add-tab">+</li>
       </ul>
+    </div> -->
+    <div id="tabs-container">
+      <ul id="tabs-list">
+        <li class="tab active">
+          <span>Home</span><button class="close">×</button>
+        </li>
+        <!-- more tabs -->
+        <li id="add-tab">+</li>
+      </ul>
     </div>
+
     <div id="content-container">
       <div class="content active">
         <input

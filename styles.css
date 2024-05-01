@@ -7,17 +7,6 @@ html {
   height: 100%;
 }
 
-#tabs-container {
-  background: #f4f4f4;
-  padding: 10px;
-}
-
-#tabs-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-}
-
 #tabs-list li {
   padding: 5px 10px;
   margin-right: 5px;
@@ -37,6 +26,71 @@ html {
   margin-left: 10px;
   cursor: pointer;
   color: red;
+}
+
+/* Style for out of box tabs problem to make it scrollable */
+
+#tabs-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+#tabs-list {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+#tabs-list .tab {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  margin-right: 4px;
+  border-radius: 4px;
+}
+
+#tabs-list .tab.active {
+  background-color: #fff;
+  border-bottom: 1px solid white;
+}
+
+#tabs-list .tab button.close {
+  margin-left: 8px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+#add-tab {
+  padding: 8px 16px;
+  cursor: pointer;
+  background-color: #ddd;
+  border: none;
+  height: fit-content;
+}
+
+/* Additional styling to ensure the scroll bar is visible */
+#tabs-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+#tabs-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+#tabs-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+#tabs-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 #content-container {
