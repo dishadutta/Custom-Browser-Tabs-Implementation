@@ -11,10 +11,9 @@ $(document).ready(function () {
   // Handle adding a new tab
   $('#add-tab').on('click', function () {
     let tabCount = tabsList.children('li').not('#add-tab').length
+    // Initial label for new tabs
     const newTab = $(
-      `<li class="tab"><span>Tab ${
-        tabCount + 1
-      }</span><button class="close">×</button></li>`
+      `<li class="tab"><span>New Tab</span><button class="close">×</button></li>`
     )
     newTab.insertBefore('#add-tab')
     const newContent = $(
@@ -44,7 +43,7 @@ $(document).ready(function () {
     }
   })
 
-  // Handle loading URL into iframe when Enter is pressed in the input field
+  // Handle loading URL into iframe and setting tab title when Enter is pressed in the input field
   $(document).on('keydown', 'input', function (e) {
     if (e.key === 'Enter') {
       let url = $(this).val()
@@ -52,6 +51,16 @@ $(document).ready(function () {
         url = 'https://' + url // Assume HTTPS if protocol not specified
       }
       $(this).next('iframe').attr('src', url)
+      // Set the tab name based on the URL
+      setTabNameFromURL($(this).parent().prevAll().length, url)
     }
   })
+
+  // Function to set the tab name based on the URL
+  function setTabNameFromURL(tabIndex, url) {
+    const hostname = new URL(url).hostname
+    let simplifiedName = hostname.replace(/^www\./, '') // Remove "www." if present
+    simplifiedName = simplifiedName.substring(0, simplifiedName.indexOf('.')) // Simplify to the first part of the domain
+    $(`.tab:eq(${tabIndex}) span`).text(simplifiedName) // Set the tab name
+  }
 })
